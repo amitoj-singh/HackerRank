@@ -29,11 +29,10 @@ int main(){
     int n;
 
     try{
-      n = stoi(S);
-      
-      cout << S;
-      
+      n = stoi(S);      
+      cout << S;      
     }
+    
     catch(...){
         cout << "Bad String";      
     }
