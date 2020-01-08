@@ -13,7 +13,7 @@ int countingValleys(int n, string s) {
         } else if (s[i] == 'D') {
             counter--;
             if (counter == -1) {
-            result++;
+                result++;
             }
         }        
     }
