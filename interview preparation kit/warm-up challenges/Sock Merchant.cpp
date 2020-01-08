@@ -5,6 +5,10 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the sockMerchant function below.
+// sort the array
+// compare first and second element of the array
+// if they are same (means we found a pair of socks with same color) remove both of them and count it as a pair of socks
+// if they are not same then remove only the first sock as it does not match with any other sock.
 int sockMerchant(int n, vector<int> ar) {
     int result = 0;
         sort(ar.begin(), ar.end());
