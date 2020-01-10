@@ -6,6 +6,8 @@ vector<string> split_string(string);
 
 // Complete the rotLeft function below.
 vector<int> rotLeft(vector<int> a, int d) {
+    /* Implementation 1
+    * remove first element and put it in the end
     int temp;
     while (d-- > 0) {
         temp = a[0];
@@ -13,6 +15,20 @@ vector<int> rotLeft(vector<int> a, int d) {
         a.push_back(temp);
     }
     return a;
+    */
+
+    // Implementation 2 (more efficient)
+    // find a starting position in the rotated array for a given number of rotations
+    // copy the values in a new array based on index in the given array
+    int size = a.size();
+    int start = d % size; // starting index in original array after 'd' rotations
+    vector<int> rotArr;
+    int index;
+    for (int i = 0; i < size; i++) {
+        index = (start + i) % size; // index to be traversed 
+        rotArr.push_back(a[index]); // copy in a new array
+    }
+    return rotArr;
 }
 
 int main()
