@@ -4,13 +4,13 @@ using namespace std;
 
 bool isAnagram(string s1, string s2) {
     int charFreq[26] = {0};
-    for (int i = 0; i < s1.length(); i++) {
-        charFreq[s1[i]-'a']++;
-        charFreq[s2[i]-'a']--;
+    for (int i = 0; i < s1.length(); i++) { // length of s1 = length of s2. This is condition is checked before calling function.
+        charFreq[s1[i]-'a']++; // adding 1 for every character of s1
+        charFreq[s2[i]-'a']--; // subtracting 1 for every character of s2
     }
 
     for (int i = 0; i < 26; i++) {
-        if (charFreq[i] != 0)
+        if (charFreq[i] != 0) // if string is not anagramatic then there will be atleast one element whose value will be non zero.
             return false;
     }
 
