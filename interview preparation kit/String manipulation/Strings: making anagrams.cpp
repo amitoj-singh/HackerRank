@@ -5,17 +5,17 @@ using namespace std;
 // Complete the makeAnagram function below.
 int makeAnagram(string a, string b) {
 
-    map<char, int> freq;
+    unordered_map<char, int> freq;
     int num_deletions = 0;
     int lenA = a.length(), lenB = b.length();
 
     for (int i = 0; i < lenA; i++)
-        freq[a[i]]++;
+        freq[a[i]]++; // adding frequencies of characters in string a
     for (int i = 0; i < lenB; i++)
-        freq[b[i]]--;
+        freq[b[i]]--; // subtracting frequencies of characters in string b
 
     for (char itr = 'a'; itr <= 'z'; itr++) {
-        num_deletions += abs(freqA[itr]);
+        num_deletions += abs(freq[itr]);
     }
     
     return num_deletions;
