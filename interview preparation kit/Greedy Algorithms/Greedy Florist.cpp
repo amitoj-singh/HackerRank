@@ -6,8 +6,6 @@ vector<string> split_string(string);
 
 // Complete the getMinimumCost function below.
 int getMinimumCost(int k, vector<int> c) {
-    // if (k == c.size())
-    //     return accumulate(c.begin(), c.end(), 0);
 
     int n = c.size(), multiplier = 1, totalCost = 0;
 
