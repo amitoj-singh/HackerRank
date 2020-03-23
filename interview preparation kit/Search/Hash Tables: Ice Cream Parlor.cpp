@@ -9,25 +9,27 @@ void whatFlavors(vector<int> cost, int money) {
     map<int, int> hashmap;
     int end = cost.size();
     for (int i = 0; i < end; i++) {
-        hashmap[cost[i]]++;
+        hashmap[cost[i]]++; // store all elements of cost in a hashmap.
     }
+    
     int flavourSunny = 0, flavourJohny = 0;
-    for (int i = 0; i < end; i++) {
-        int req_cost = money - cost[i];
+    
+    for (int i = 0; i < end; i++) { // traverse cost array and calculate required cost (req_cost)
+        int req_cost = money - cost[i]; 
         flavourSunny = i+1;
-        if (hashmap[req_cost] > 0) {
-            for (int j = i+1; j < end; j++) {
+        if (hashmap[req_cost] > 0) { // if req_cost is found. Find the index of element in cost array.
+            for (int j = i+1; j < end; j++) { // Used Linear search
                 if (req_cost == cost[j]) {
                     flavourJohny = j+1;
-                    break;
+                    break; // break out of the linear search if required cost exists.
                 }
             }
         }
         if(flavourJohny > 0)
-            break;
+            break; // break out of the loop if both flavours are found
     }
 
-    cout << flavourSunny << " " << flavourJohny << endl;
+    cout << flavourSunny << " " << flavourJohny << endl; // print the flavour numbers.
 
 }
 
