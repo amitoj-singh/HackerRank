@@ -69,48 +69,23 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  *
  */
 SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* head, int position) {
+    
+    SinglyLinkedListNode *temp = head;
+    
     if (position == 0) {
-        head = head->next;
+        head = temp->next;
+        delete temp;
         return head;
     }
-    SinglyLinkedListNode *temp = head;
+    
     for (int i = 0; i < position-1; i++) {
         temp = temp->next;
     }
-    temp->next = temp->next->next;
+    
+    SinglyLinkedListNode *temp1 = temp->next;
+    temp->next = temp1->next;
+    delete temp1;
     return head;
 }
 
 int main()
-{
-    ofstream fout(getenv("OUTPUT_PATH"));
-
-    SinglyLinkedList* llist = new SinglyLinkedList();
-
-    int llist_count;
-    cin >> llist_count;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    for (int i = 0; i < llist_count; i++) {
-        int llist_item;
-        cin >> llist_item;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        llist->insert_node(llist_item);
-    }
-
-    int position;
-    cin >> position;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    SinglyLinkedListNode* llist1 = deleteNode(llist->head, position);
-
-    print_singly_linked_list(llist1, " ", fout);
-    fout << "\n";
-
-    free_singly_linked_list(llist1);
-
-    fout.close();
-
-    return 0;
-}
