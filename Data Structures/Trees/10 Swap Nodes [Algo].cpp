@@ -145,3 +145,5 @@ int main()
 
     return 0;
 }
+
+//A more efficient approach: https://ideone.com/Fml7Sm
