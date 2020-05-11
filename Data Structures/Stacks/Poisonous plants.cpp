@@ -243,6 +243,8 @@
 
 
 /********************* Attempt 4 *********************/
+// solution from:
+// https://www.hackerrank.com/challenges/poisonous-plants/forum/comments/420881
 
 #include<bits/stdc++.h>
 
@@ -251,7 +253,28 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    
+    stack<int> st;
+    vector<int> p(n, 0), days (n, 0);
+    int maxDays = 0;
+    for (int i = 0; i < n; i++) {
+        cin >> p[i];
+        days[i] = 1;
+
+        while (!st.empty() && p[i] <= p[st.top()]) {
+            days[i] = max(days[i], days[st.top()]+1);
+            st.pop();
+        }
+
+        if (st.empty()) {
+            days[i] = -1;
+        }
+
+        st.push(i);
+
+        maxDays = max(days[i], maxDays);
+    }
+
+    cout << maxDays;
 
     return 0;
 }
