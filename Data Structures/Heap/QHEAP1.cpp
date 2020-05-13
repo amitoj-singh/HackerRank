@@ -78,7 +78,7 @@ int main() {
                 int index = searchX(heap, 0, x);
                 swap(heap, index, heap.size()-1);
                 heap.pop_back();
-                sink(heap, x);
+                sink(heap, index);
                 break;
             }
             case 3: { // print minimum element in heap
