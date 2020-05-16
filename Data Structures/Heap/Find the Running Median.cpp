@@ -18,24 +18,22 @@ vector<double> runningMedian(vector<int> a) {
     double median = 0;
     
     for(int i = 0; i < n; i++) {
-        if (a[i] < median) {
+        if (a[i] < median)
             maxHeap.push(a[i]);
-        } else {
+        else
             minHeap.push(a[i]);
-        }
 
         if (minHeap.size() > maxHeap.size()+1) {
             maxHeap.push(minHeap.top());
             minHeap.pop();
-        }
+        } 
         else if (maxHeap.size() > minHeap.size()+1) {
             minHeap.push(maxHeap.top());
             maxHeap.pop();
         }
 
-        if (minHeap.size() == maxHeap.size()) {
+        if (minHeap.size() == maxHeap.size())
             median = (minHeap.top()+maxHeap.top())/2.0;
-        }
         else if (minHeap.size() > maxHeap.size())
             median = double(minHeap.top());
         else
