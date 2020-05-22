@@ -19,7 +19,7 @@ int main() {
 
     vector<int> root(n+1), count(n+1);
 
-    for (int i = 0; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         root[i] = i;
         count[i] = 1;
     } 
