@@ -5,18 +5,11 @@ using namespace std;
 vector<string> split_string(string);
 
 int reverse (int num) {
-    int mul = 1, rev = 0, temp = num;
-    while (temp > 0) {
-        temp /= 10;
-        mul *= 10;
-    }
-    mul /= 10;
+    int rev = 0;
     while (num > 0) {
         int rem = num%10;
-        rem = rem*mul;
-        rev += rem;
+        rev = rev*10 + rem;
         num /= 10;
-        mul /= 10;
     }
     return rev;
 }
