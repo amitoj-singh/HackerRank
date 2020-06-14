@@ -16,8 +16,6 @@ int queensAttack(int n, int k, int r_q, int c_q, vector<vector<int>> obstacles) 
     int d4 = min(bottom, left);
     int steps;
 
-    cout << top << endl << right << endl << bottom << endl << left << endl << d1 << endl << d2 << endl << d3 << endl << d4;
-
     for (int i = 0; i < k; i++) {
         int r_o = obstacles[i][0];
         int c_o = obstacles[i][1];
